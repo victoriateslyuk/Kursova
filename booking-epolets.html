@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронювання квитків | Epolets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #51e733;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            padding: 20px;
+        }
+        .main {
+            flex: 2;
+        }
+        .sidebar {
+            flex: 0.6;
+            padding: 10px;
+            border-left: 1px solid #ccc;
+            background: #f8f8f8;
+            text-align: left;
+        }
+        .stage {
+            width: 70%;
+            margin: 20px auto;
+            background-color: #777;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+        .fan-zone {
+            background-color: purple;
+            width: 500px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px auto;
+        }
+        .fan-zone:hover {
+            background-color: darkviolet;
+        }
+        .seats {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .row-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .seat {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+        }
+        .seat.selected {
+            background-color: #4caf50 !important;
+        }
+        .seat.occupied {
+            background-color: #aaa;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        .sector-1 .seat { background-color: #81007f; } /* 490₴ */
+        .sector-2 .seat { background-color: #0043ff; } /* 790₴ */
+        .sector-3 .seat { background-color: #00e80f; } /* 1150₴ */
+        .legend {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .legend-item .color-box {
+            width: 15px;
+            height: 15px;
+        }
+        .selected-tickets h3 {
+            margin-bottom: 10px;
+        }
+        .selected-tickets ul {
+            list-style: none;
+            padding: 0;
+        }
+        .selected-tickets ul li {
+            margin-bottom: 5px;
+        }
+        .checkout button {
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #51e733;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <strong>Epolets. Рок і драйв</strong><br>
+            Дата: 29 червня | Час: 21:00 | Локація: Львів, Клуб Malevich
+        </div>
+        <nav>
+            <a href="#">Профіль</a>
+            <a href="#">Кошик</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="main">
+            <div class="stage">СЦЕНА</div>
+            <div class="fan-zone" onclick="toggleFanZoneTicket()">ФАН-ЗОНА (790₴)</div>
+
+            <div class="seats">
+                <script>
+                    const seatsContainer = document.currentScript.parentElement;
+                    for (let row = 1; row <= 17; row++) {
+                        const rowDiv = document.createElement("div");
+                        rowDiv.className = "row sector-" + (row <= 5 ? "3" : row <= 10 ? "2" : "1"); 
+                        const label = document.createElement("div");
+                        label.className = "row-label";
+                        label.textContent = `Ряд ${row}`;
+                        rowDiv.appendChild(label);
+                        for (let seat = 1; seat <= 27; seat++) {
+                            const price = row <= 5 ? 1150 : row <= 10 ? 790 : 490;
+                            const seatDiv = document.createElement("div");
+                            seatDiv.className = "seat";
+                            seatDiv.textContent = seat;
+                            seatDiv.setAttribute("data-price", price);
+                            if (Math.random() < 0.2) seatDiv.classList.add("occupied");
+                            seatDiv.onclick = () => {
+                                if (!seatDiv.classList.contains("occupied")) {
+                                    toggleSeatSelection(seatDiv, price, `Ряд ${row}, місце ${seat}`);
+                                }
+                            };
+                            rowDiv.appendChild(seatDiv);
+                        }
+                        seatsContainer.appendChild(rowDiv);
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="legend">
+                <h3>Ціни</h3>
+                <div class="legend-item"><div class="color-box" style="background-color: #81007f;"></div> 490₴</div>
+                <div class="legend-item"><div class="color-box" style="background-color: #0043ff;"></div> 790₴</div>
+                <div class="legend-item"><div class="color-box" style="background-color: #00e80f;"></div> 1150₴</div>
+                <div class="legend-item"><div class="color-box" style="background-color: #4caf50;"></div> Обране місце</div>
+                <div class="legend-item"><div class="color-box" style="background-color: #aaa;"></div> Зайняте місце</div>
+            </div>
+
+            <div class="selected-tickets">
+                <h3>Ваші квитки</h3>
+                <ul id="ticket-list"></ul>
+                <p><strong>Всього:</strong> <span id="total-price">0 ₴</span></p>
+                <button onclick="processOrder()">ОФОРМИТИ</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = { items: [], total: 0 };
+        
+        function toggleSeatSelection(element, price, description) {
+            if (element.classList.contains("selected")) {
+                element.classList.remove("selected");
+                cart.items = cart.items.filter(item => item.description !== description);
+                cart.total -= price;
+            } else {
+                element.classList.add("selected");
+                cart.items.push({ description, price });
+                cart.total += price;
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            document.getElementById("total-price").textContent = `${cart.total} ₴`;
+        }
+    </script>
+</body>
+</html>
