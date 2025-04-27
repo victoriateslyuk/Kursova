@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Головна | Події</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #fff;
+    }
+    header {
+      background-color: #51e733;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .top-events {
+      padding: 30px 20px;
+    }
+    .top-events h2 {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .event-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      background: #fff;
+      transition: transform 0.2s;
+      height: 100%;
+    }
+    .event-card:hover {
+      transform: scale(1.02);
+    }
+    .event-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .event-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 15px;
+      flex-grow: 1;
+    }
+    .event-info h3 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    .event-info p {
+      margin: 5px 0;
+    }
+    .event-info a.button {
+      margin-top: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 15px;
+      background-color: #51e733;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>Fest.UA</strong></div>
+    <nav>
+      <a href="profile.html">Профіль</a>
+    </nav>
+  </header>
+
+  <section class="top-events">
+    <h2>ПОДІЇ У ЧЕРВНІ</h2>
+    <div class="events-grid">
+      <div class="event-card">
+        <a href="event-ocean.html">
+          <img src="https://grivna.ua/wp-content/uploads/2024/09/7b7b8d9cf1c67eb36b93dd34c97cb137_Generic.jpg" alt="Океан Ельзи">
+        </a>
+        <div class="event-info">
+          <p>7 червня 17:00</p>
+          <h3>Океан Ельзи. Той день у Львові</h3>
+          <p>Львів, Територія !FESTrepublic</p>
+          <p>від 790 ₴</p>
+          <a href="booking-ocean.html" class="button">Забронювати квиток</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <a href="event-schmalgauzen.html">
+          <img src="https://ukrinfo-data.s3.amazonaws.com/media/filebrowser/2024-07-09t112416660z-screenshot-4.jpg" alt="Schmalgauzen">
+        </a>
+        <div class="event-info">
+          <p>10 червня 19:00</p>
+          <h3>Schmalgauzen - Втомлена стріт</h3>
+          <p>Львів, Malevich Concert Arena</p>
+          <p>від 700 ₴</p>
+          <a href="booking-schmalgauzen.html" class="button">Забронювати квиток</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <a href="event-livinston.html">
+          <img src="https://i.scdn.co/image/ab6761610000e5ebda38ac9ec79865edab15406d" alt="Livinston">
+        </a>
+        <div class="event-info">
+          <p>15 червня 20:00</p>
+          <h3>Livinston - Офелія</h3>
+          <p>Львів, Malevich Concert Arena</p>
+          <p>від 550 ₴</p>
+          <a href="booking-livinston.html" class="button">Забронювати квиток</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <a href="event-melovin.html">
+          <img src="https://imgnewtabl.pravda.com.ua/tabloid/system/MediaPhoto/photo/4/0/169764/40e7b063af98076a29c970143fc6ae321726235599.jpg?w=690&q=90" alt="Melovin">
+        </a>
+        <div class="event-info">
+          <p>18 червня 19:30</p>
+          <h3>Melovin. Обиратиму себе</h3>
+          <p>Львів, Malevich Concert Arena</p>
+          <p>від 750 ₴</p>
+          <a href="booking-melovin.html" class="button">Забронювати квиток</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <a href="event-cheev.html">
+          <img src="https://shaleniy.com.ua/wp-content/uploads/2024/02/CHEEV-PRESS3-scaled-600x600.jpg" alt="Cheev">
+        </a>
+        <div class="event-info">
+          <p>21 червня 18:00</p>
+          <h3>Cheev - Музика кохання</h3>
+          <p>Львів, Територія !FESTrepublic</p>
+          <p>від 700 ₴</p>
+          <a href="booking-cheev.html" class="button">Забронювати квиток</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <a href="event-molodi.html">
+          <img src="https://www.rbc.ua/static/img/_/3/_3f1e23a1299c574ae982c078ef8faf94_1200x675.jpg" alt="MOLODI">
+        </a>
+        <div class="event-info">
+          <p>24 червня 20:00</p>
+          <h3>MOLODI</h3>
+          <p>Львів, Територія !FESTrepublic</p>
+          <p>від 500 ₴</p>
+          <a href="booking-molodi.html" class="button">Забронювати квиток</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <a href="event-navi.html">
+          <img src="https://www.stb.ua/wp-content/uploads/2019/01/15/Ivan-NAVI_2.jpg" alt="IVAN NAVI">
+        </a>
+        <div class="event-info">
+          <p>26 червня 19:00</p>
+          <h3>IVAN NAVI - Ритми літа</h3>
+          <p>Львів, Malevich Concert Arena</p>
+          <p>від 590 ₴</p>
+          <a href="booking-navi.html" class="button">Забронювати квиток</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <a href="event-ziferblat.html">
+          <img src="https://www.rbc.ua/static/img/_/p/_proekt__5__2cdc1584707984c7b8f8c444507e0d87_1300x820.jpg" alt="Ziferblat">
+        </a>
+        <div class="event-info">
+          <p>27 червня 18:30</p>
+          <h3>Ziferblat - Indie Night</h3>
+          <p>Львів, Територія !FESTrepublic</p>
+          <p>від 550 ₴</p>
+          <a href="booking-ziferblat.html" class="button">Забронювати квиток</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <a href="event-epolets.html">
+          <img src="https://zn.ua/img/forall/u/0/-1/users/Apr2019/227546.jpg" alt="Epolets">
+        </a>
+        <div class="event-info">
+          <p>29 червня 21:00</p>
+          <h3>Epolets. Рок і драйв</h3>
+          <p>Львів, Malevich Concert Arenah</p>
+          <p>від 490 ₴</p>
+          <a href="booking-epolets.html" class="button">Забронювати квиток</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <a href="event-sugar.html">
+          <img src="https://i.ytimg.com/vi/LVBcP0ewr8g/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCv-4ckjgNKawvn45KfjYvead6yLg" alt="Шугар">
+        </a>
+        <div class="event-info">
+          <p>30 червня 20:00</p>
+          <h3>Шугар</h3>
+          <p>Львів, Malevich Concert Arena</p>
+          <p>від 470 ₴</p>
+          <a href="booking-sugar.html" class="button">Забронювати квиток</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
